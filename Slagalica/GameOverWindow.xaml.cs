@@ -62,5 +62,11 @@ namespace Slagalica
         {
             this.Close();
         }
+
+        private void Show_Ranking_List(object sender, RoutedEventArgs e)
+        {
+            RankingListWindow rankingList = new RankingListWindow();
+            rankingList.Show();
+        }
     }
 }

@@ -32,6 +32,8 @@ namespace Slagalica
         private DispatcherTimer timer;
         private int remainedTime;
 
+        private Player currPlayer;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -90,19 +92,20 @@ namespace Slagalica
             yellowCount -= redCount;
 
             PaintGuessGrid(yellowCount,redCount);
+            DisableButtonsCurrentRow();
 
             if (redCount == 4)
             {
+                currPlayer.Points = (20 + (6 - currentRow) * 10);
                 FinishGame(true);
                 return;
             }
 
-            DisableButtonsCurrentRow();
             currentRow++;
             guess.Clear();
             okBtn.IsEnabled = false;
 
-            if (currentRow == 6)
+            if (currentRow == 7)
             {
                 FinishGame(false);
                 return;
@@ -112,6 +115,16 @@ namespace Slagalica
         private void FinishGame(Boolean isWin)
         {
             DisposeTimer();
+            //name dialog
+            if (isWin)
+            {
+                NameInputDialog inputDialog = new NameInputDialog();
+                if (inputDialog.ShowDialog() == true)
+                {
+                    currPlayer.Name = inputDialog.NameInput;
+                    currPlayer.WriteInFile();
+                }
+            }
             GameOverWindow gameOverWindow = new GameOverWindow(isWin, remainedTime, combination);
             gameOverWindow.Closed += (sender, e) => PrepareGame();
             gameOverWindow.Show();
@@ -310,6 +323,7 @@ namespace Slagalica
             combination = new List<string>();
             guess = new List<string>();
             mappings = new Dictionary<int, string>();
+            currPlayer = new Player();
             InitDictionary();
             MakeCombination();
             SetTimer();
@@ -323,7 +337,7 @@ namespace Slagalica
             iconsGrid.Children.Clear();
 
             //set empty cells
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
@@ -354,7 +368,7 @@ namespace Slagalica
 
 
             //set guesses cells
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {

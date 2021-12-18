@@ -55,8 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ListViewGridView.xaml.cs">
+      <DependentUpon>ListViewGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="model\Player.cs" />
+    <Compile Include="NameInputDialog.xaml.cs">
+      <DependentUpon>NameInputDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RankingListWindow.xaml.cs">
       <DependentUpon>RankingListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TempWindow.xaml.cs">
+      <DependentUpon>TempWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="FirstWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -74,11 +84,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ListViewGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NameInputDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RankingListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TempWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\score.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\rankingList.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,8 +11,9 @@
 
             <Style x:Key="MyButtonStyle" TargetType="Button">
                 <Setter Property="Background" Value="Transparent" />
-           
-            </Style>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
 
         <Style x:Key="CustomFontStyle" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="15"/>
@@ -34,7 +35,11 @@
     
         <Image DockPanel.Dock="Top" Source="/resources/gameOver.png"></Image>
 
-        <Label x:Name="bestScoreLbl" DockPanel.Dock="Top" Height="40" Style="{StaticResource CustomFontStyle}"  Margin="0,20,0,0"></Label>
+        <Button DockPanel.Dock="Top" Height="40" Width="120" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Center" Click="Show_Ranking_List" Margin="0,5,0,0" >
+            <StackPanel>
+                <Image Source="/resources/rankingList.png"></Image>
+            </StackPanel>
+        </Button>
 
 
         <Grid x:Name="combinationGrid" DockPanel.Dock="Top" Height="70" Width="280" Margin="0,20,0,0">

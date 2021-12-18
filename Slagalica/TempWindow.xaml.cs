@@ -10,29 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Slagalica
 {
     /// <summary>
-    /// Interaction logic for FirstWindow.xaml
+    /// Interaction logic for TempWindow.xaml
     /// </summary>
-    public partial class FirstWindow: Window
+    public partial class TempWindow : Window
     {
-        public FirstWindow()
+        public TempWindow()
         {
             InitializeComponent();
-        }
-
-        private void Start_Game(object sender, RoutedEventArgs e)
-        {
-          /*   MainWindow mainWindow = new MainWindow();
-             mainWindow.Show();
-             this.Close();
-          */
-            RankingListWindow rankingList = new RankingListWindow();
-            rankingList.Show();
         }
     }
 }

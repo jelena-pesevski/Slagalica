@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Slagalica"
         mc:Ignorable="d"
-        Title="Slagalica" Height="580" Width="900" ResizeMode="NoResize" MinHeight="580" MinWidth="900">
+        Title="Slagalica" Height="620" Width="900" MinHeight="580" MinWidth="900">
 
     <Window.Resources>
         <Style x:Key="TransparentStyle" TargetType="{x:Type Button}">
@@ -28,89 +28,82 @@
         </Style>
     </Window.Resources>
 
-    <DockPanel LastChildFill="False">
+    <DockPanel LastChildFill="True">
         <DockPanel.Background>
             <ImageBrush ImageSource="/resources/backgroundMainWindow.jpg"/>
         </DockPanel.Background>
-        <Grid x:Name="mainGrid" DockPanel.Dock="Left" Width="300" Margin="0,0,0,115" Height="400" VerticalAlignment="Center">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="25,10,0,0" MinHeight="410">
+            <Grid x:Name="mainGrid" Width="300" Height="470" MinWidth="300" MinHeight="470">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-        </Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            </Grid>
 
-        <Grid DockPanel.Dock="Left" Width="25">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-        </Grid>
+            <Grid DockPanel.Dock="Left" MinHeight="400" MinWidth="25" Height="400">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
 
-        <Grid x:Name="guessGrid" DockPanel.Dock="left" Width="300" Height="400" Margin="0,0,0,115" VerticalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            <Grid x:Name="guessGrid" Width="300" Height="470" MinWidth="300" MinHeight="470">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-        </Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            </Grid>
+        </StackPanel>
 
-        <Grid x:Name="iconsGrid" DockPanel.Dock="Bottom" Height="70" Margin="-550,10,360,20" Width="420">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" MinHeight="100" Margin="25,0,0,10">
+            <Grid x:Name="iconsGrid" MinWidth="420" Height="70" MinHeight="70" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-        </Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            </Grid>
 
+            <Button x:Name="okBtn" Click="Check_Combination" Background="Transparent" BorderBrush="White" BorderThickness="2" MaxHeight="50" MinWidth="100" MaxWidth="100" Margin="35,0,0,0">
+                <StackPanel>
+                    <Image Source="/resources/ok.png" Height="45" Width="53" />
+                </StackPanel>
+            </Button>
 
-        <Grid x:Name="resultGrid" DockPanel.Dock="Right" Width="150" Margin="10,100,40,100">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition />
-            </Grid.RowDefinitions>
-
-            <Label x:Name="remainedTimelbl" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" BorderBrush="White" 
-                   BorderThickness="3" Style="{StaticResource CustomFontStyle}">
+            <Label x:Name="remainedTimelbl" HorizontalAlignment="Center" MaxHeight="50" MinWidth="100" MaxWidth="100" Margin="35,0,0,0" BorderBrush="White" 
+                BorderThickness="2" Style="{StaticResource CustomFontStyle}">
             </Label>
-        </Grid>
-
-        <Button x:Name="okBtn" Click="Check_Combination" DockPanel.Dock="Bottom" Height="45" Background="Transparent" BorderBrush="White" BorderThickness="2" Margin="-50,10,50,-75">
-            <StackPanel>
-                <Image Source="/resources/ok.png" Height="41" Width="53" />
-
-
-            </StackPanel>
-        </Button>
+        </StackPanel>
     </DockPanel>
 </Window>

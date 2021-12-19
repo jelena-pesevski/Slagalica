@@ -27,12 +27,12 @@ namespace Slagalica
 
         private void Start_Game(object sender, RoutedEventArgs e)
         {
-          /*   MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow();
              mainWindow.Show();
              this.Close();
-          */
-            RankingListWindow rankingList = new RankingListWindow();
-            rankingList.Show();
+          
+            /*RankingListWindow rankingList = new RankingListWindow();
+            rankingList.Show();*/
         }
     }
 }

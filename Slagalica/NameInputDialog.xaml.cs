@@ -19,14 +19,23 @@ namespace Slagalica
     /// </summary>
     public partial class NameInputDialog : Window
     {
-        private string ERROR_MSG = "Name already exists!";
+        private const string ERROR_MSG = "Name already exists!";
+        private const string LBL_MSG = "You won! If you want to be ranked enter a name:";
+        private const string NAME_MISS = "Please provide name";
 
         public NameInputDialog()
         {
             InitializeComponent();
+            lblMsg.Content = LBL_MSG;
         }
         private void btnDialogOk_Click(object sender, RoutedEventArgs e)
         {
+            if ("".Equals(NameInput))
+            {
+                lblError.Content = NAME_MISS;
+                return;
+            }
+
             //check if name exists
             if (!Player.CheckIfNameExists(NameInput))
             {

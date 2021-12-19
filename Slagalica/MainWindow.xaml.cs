@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Collections;
 using System.Diagnostics;
 using System.Windows.Threading;
+using System.IO;
 
 namespace Slagalica
 {
@@ -33,6 +34,8 @@ namespace Slagalica
         private int remainedTime;
 
         private Player currPlayer;
+
+        private MediaPlayer mediaPlayer = new MediaPlayer();
 
         public MainWindow()
         {
@@ -118,6 +121,10 @@ namespace Slagalica
             //name dialog
             if (isWin)
             {
+                //play sound
+                var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                mediaPlayer.Open(new Uri(projectPath+"/resources/win_sound.mp3", UriKind.Absolute));
+                mediaPlayer.Play();
                 NameInputDialog inputDialog = new NameInputDialog();
                 if (inputDialog.ShowDialog() == true)
                 {

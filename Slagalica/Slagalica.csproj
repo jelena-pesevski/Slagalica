@@ -55,9 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ListViewGridView.xaml.cs">
-      <DependentUpon>ListViewGridView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="model\Player.cs" />
     <Compile Include="NameInputDialog.xaml.cs">
       <DependentUpon>NameInputDialog.xaml</DependentUpon>
@@ -81,10 +78,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="GameOverWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ListViewGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,6 +183,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\rankingList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\sound.wav" />
+    <Content Include="resources\win_sound.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
